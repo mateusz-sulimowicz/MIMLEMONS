@@ -1,0 +1,49 @@
+{
+  "name": "awww_lab6",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "node.js i Express, odc. 1",
+  "main": "app.js",
+  "watch": {
+    "lint": {
+      "patterns": [
+        "src",
+        "test"
+      ],
+      "extensions": "mjs"
+    }
+  },
+  "scripts": {
+    "start": "nodemon --experimental-json-modules ./src/app.mjs",
+    "lint": "eslint ./src/*.mjs --fix",
+    "develop": "npm-watch"
+  },
+  "author": "Mateusz Sulimowicz",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.10.0",
+    "axios": "^0.27.2",
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.17.3",
+    "express-validator": "^6.14.1",
+    "firebase": "^9.8.1",
+    "firebase-admin": "^10.2.0",
+    "firebase-auth": "^0.1.2",
+    "http": "^0.0.1-security",
+    "nodemon": "^2.0.15",
+    "npm-watch": "^0.11.0",
+    "pg": "^8.7.3",
+    "pg-hstore": "^2.3.4",
+    "pug": "^3.0.2",
+    "redis-smq": "^7.0.0-rc.6",
+    "sequelize": "^6.19.0",
+    "socket.io": "^4.5.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0"
+  }
+}
