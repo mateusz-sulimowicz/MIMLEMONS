@@ -1,23 +1,20 @@
 .lobby {
-    
-    background-color: gainsboro;
+    margin-top: 10%;
+    margin-bottom: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(234, 241, 255);
+    color: rgb(27, 96, 165);
     display: flex;
     flex-direction: column;
-    width: 80%
+    font-weight:bold;
 }
 
 .userData {
-    background-color: whitesmoke;
+    background-color: rgb(234, 241, 255);
     display: flex;
     flex-direction: row;
 
-}
-
-.avatar {
-    background-color: gainsboro;
-    display: flex;
-    justify-content: center;
-    padding: 1%;
 }
 
 img {
@@ -39,8 +36,9 @@ img {
 .val-opp {
     display: flex;
     justify-content: space-between;
-    background-color: rgb(198, 218, 255);
+    background-color: rgb(187, 211, 255);
     color: rgb(31, 111, 192);
+    padding: 2%;
 }
 
 .val-your {
@@ -48,9 +46,8 @@ img {
     justify-content: space-between;
     background-color: rgb(234, 241, 255);
     color: rgb(31, 111, 192);
+    padding: 2%;
 }
-
-
 
 .buttonPing {
     background-color:cornflowerblue;
@@ -60,13 +57,13 @@ img {
 
 .buttonLogout {
 
-    background-color: rgb(223, 0, 0);
+    background-color: rgb(20, 125, 230);
     color: white;
 }
 
 .buttonLogout:hover {
 
-    background-color: red;
+    background-color:rgb(19, 108, 197);
     color: white;
 }
 
@@ -101,7 +98,7 @@ img {
 }
 
 .avatar {
-    background-color: gainsboro;
+    background-color: rgb(208, 225, 255);
     display: flex;
     margin-left: 1%;
     margin-right: 1%;
@@ -111,16 +108,9 @@ img {
 }
 
 @media only screen and (max-width: 700px) {
-    .lobby {
-        width: auto;
-    }
-
     .userData {
-        background-color: whitesmoke;
         display: flex;
         flex-direction: column;
         overflow-wrap:break-word;
-    }
-
-    
-  }
+    }    
+}

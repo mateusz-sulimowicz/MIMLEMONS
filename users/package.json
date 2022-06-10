@@ -14,7 +14,7 @@
     }
   },
   "scripts": {
-    "start": "nodemon --experimental-json-modules ./src/app.mjs",
+    "start": "node --experimental-json-modules ./src/app.mjs",
     "lint": "eslint ./src/*.mjs --fix",
     "develop": "npm-watch"
   },

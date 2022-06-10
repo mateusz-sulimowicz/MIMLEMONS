@@ -2,7 +2,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import GoogleButton from 'react-google-button'
-
 import 'socket.io-client';
 
 import { auth, provider } from './firebase/util.js';
@@ -88,7 +87,7 @@ const Lobby = ({setSocket, getSocket, setRoom}) => {
         loading
         ? // Display Loading message.
           <div  className='lobby'> 
-          <div> Loading...</div> </div>  
+          <div className='toast'> Loading...</div> </div>  
         : // State has loaded.
           user
           ? // Display user data.
@@ -128,22 +127,21 @@ const Lobby = ({setSocket, getSocket, setRoom}) => {
                 
               </div>
               {
+                !matchmaking
+                ? 
                   userGameData && // User game data successfully fetched from backend.
-                  (
+                    (
                       <button className='buttonJoin' onClick={() => joinGame()}>
-                        JOIN GAME</button>
-                  ) 
-                }
-                {
-                  matchmaking && 
+                        JOIN GAME
+                      </button>
+                    ) 
+                : 
                   (
-                    <>
-                      <div className='looking'>Looking for a game...</div>
-                    </>
+                    <button className='buttonJoin' onClick={() => joinGame()}>
+                    👀 Looking for a game ... 👀
+                    </button>
                   ) 
-                } 
-                
-                
+              }  
             </div>
             ) 
           : // User has not signed in yet -> display "Sign in with Google" button only.

@@ -1,7 +1,6 @@
 // App.js
 import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-
 import 'socket.io-client';
 
 const Chat = ({name, destination, socket}) => {
@@ -43,35 +42,38 @@ const Chat = ({name, destination, socket}) => {
 
 
   return (
-      <div >
+    <>
+
       {
         (
-          <div >
+          <>
             <div>
+            
               <div className='info-opponent'>
                 <div>{name}</div>
               </div>
               <div className='val-your'>
                 <div>From:  </div>
-                <div>{messagesFrom}  </div>
+                <div className='counter'>{messagesFrom}  </div>
               </div>
               <div className='val-opp'>
                 <div>To: </div>
-                <div>{messages}</div>
+                <div  className='counter'>{messages}</div>
               </div>
             </div>
            
-            <div>
+            
             <button className='buttonPing'onClick={() => sendMessage(`Dupsko od ${socket.id}`)}> 🍋 </button>
-            </div>
             
             
             
-          </div>
+            
+          </>
         )
       }
-      </div >
-    );
+      
+    </>
+  );
 }
 
 export default Chat;

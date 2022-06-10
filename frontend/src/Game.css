@@ -1,28 +1,4 @@
-.lobby {
-    margin-top: 10%;
-    margin-bottom: 30%;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: rgb(183, 208, 255);
-    display: flex;
-    flex-direction: column;
-    font-weight:bold;
-}
 
-.userData {
-
-    display: flex;
-    flex-direction: row;
-    overflow-wrap: normal;
-}
-
-.avatar {
-    background-color: gainsboro;
-    display: flex;
-    justify-content: center;
-    padding: 1%;
-    
-}
 
 .opponents {
     display: flex;
@@ -38,10 +14,13 @@
     min-width: 25%;
     width: 100%;
     height: 100%;
+    padding: 5%;
+    border: solid rgb(187, 211, 255);
+    border-width: 1px 0;
 }
 
 .opponents_title {
-    background-color: cornflowerblue;
+    background-color: rgb(20, 125, 230);
     color: white;
     font-weight: bold;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -62,11 +41,12 @@ img {
 
 .info-opponent {
     display: flex;
-    background-color: cornflowerblue;
-    color: white;
+    background-color: white;
     justify-content: space-around;
     text-align: center;
     width: 100%;
+    height: 10%;
+    font: 40px;
 }
 
 .buttonJoin {
@@ -74,7 +54,8 @@ img {
     color: white;
     width:100%;
     min-height: 200px;
-    font-weight:bold
+    font-weight:bold;
+    font-size: 20px;
 }
 
 .buttonJoin:hover {
@@ -90,30 +71,14 @@ img {
     min-height: 200px;
     font-weight:bold;
     font-size:40px;
+    transition: font-size .8s ease;
 }
 
 .buttonPing:hover {
-    background-color:rgb(20, 125, 230);
+    background-color:rgb(23, 126, 230);
     color: white;
     font-weight: bold;
-    font-size:100px;
-}
-
-.looking {
-    background:rgb(133, 194, 255);
-    color: white;
-}
-
-.buttonLogout {
-    font-weight:bolder;
-    background-color: rgb(223, 0, 0);
-    color: white;
-}
-
-.buttonLogout:hover {
-
-    background-color: red;
-    color: white;
+    font-size: min(18vw, 80px)
 }
 
 .empty {
@@ -133,9 +98,10 @@ img {
 .toast {
     margin-top: 15%;
     display: flex;
+    height: 5%;
     width: 100%;
     justify-content: center;
-    font-size: large;
+    font-size: larger;
 }
 
 .login {
@@ -162,19 +128,8 @@ img {
 
 @media only screen and (max-width: 600px) {
     .userData {
-        background-color: whitesmoke;
         display: flex;
         flex-direction: column;
         overflow-wrap: normal;
     }
-
-    .avatar {
-        background-color: gainsboro;
-        display: flex;
-        margin-left: 1%;
-        margin-right: 1%;
-        margin-top: 1%;
-        margin-bottom: 1%;
-        justify-content: center
 }
-  }

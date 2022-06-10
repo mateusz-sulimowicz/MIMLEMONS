@@ -17,7 +17,7 @@ app.use(express.json());
 let socketIDs = new Set();
 
 // Number of players required to make a match.
-const ROOM_SIZE = 2;
+const ROOM_SIZE = 4;
 let nextRoom = 0;
 
 // ------------ HTTP --------------

@@ -134,7 +134,7 @@ export const handleJoinGame = (socket) => {
             publishGameResult(s.token.uid, false);
           }
         });
-      }, 15000);
+      }, 60000);
     }
   });
 };
