@@ -3,6 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import 'socket.io-client';
 
+
 import { auth, provider } from './firebase/util.js';
 import Chat from "./Chat.js";
 import './Game.css'
@@ -20,12 +21,23 @@ const Game = ({getUser, getRoom, getSocket}) => {
   const players = getRoom();
   console.log(players);
 
+ 
+
   useEffect(() => {
+    if (!getUser() || !getRoom() || !getSocket()) {
+      console.log('dupa');
+      navigator('/');
+      window.location.reload(false);
+    }
+
+
+
     auth.onAuthStateChanged((user) => {
-      if (!user) {
+      if (!getUser()) {
         navigator('/');
       }
     });
+    
   }, [])
 
   useEffect(() => {
@@ -43,30 +55,33 @@ const Game = ({getUser, getRoom, getSocket}) => {
   }, []);
 
 
-  let name = String.fromCharCode('A'.charCodeAt(0) - 1);
-  const chats = players.map((socketId) => {
-    name = String.fromCharCode(name.charCodeAt(0) + 1);
-    return socketId !== getSocket().id
-      ? // Not myself.
-        (
-          <div className='chat'>
-              <Chat
-                  name={name}
-                  destination={socketId}
-                  socket={getSocket()}
-              />
-          </div>
-        )
-      : // Dont send message to yourself :)
-        <></>
-  });
+  let chats;
+  if (players) {
+    let name = String.fromCharCode('A'.charCodeAt(0) - 1);
+    chats = players.map((socketId) => {
+      name = String.fromCharCode(name.charCodeAt(0) + 1);
+      return socketId !== getSocket().id
+        ? // Not myself.
+          (
+            <div className='chat'>
+                <Chat
+                    name={name}
+                    destination={socketId}
+                    socket={getSocket()}
+                />
+            </div>
+          )
+        : // Dont send message to yourself :)
+          <></>
+    });
+  }
 
   return (
       <div className='user-info'>
       {
         !results
         ? 
-            getUser()
+            getUser() && getSocket() && getRoom()
             ? // Display user data.
             (
             <div className="lobby">
@@ -83,12 +98,12 @@ const Game = ({getUser, getRoom, getSocket}) => {
                 </div>
                 
               </div>
-              <div>
-                <div className='opponents_title'> Ping your opponents! </div>
+              
+                <div className='opponents_title'> Throw 🍋  at your opponents by clicking the big button! </div>
                 <div className='opponents'>
                   {chats}
                 </div>
-              </div>
+             
             </div>
             
             )
@@ -97,9 +112,9 @@ const Game = ({getUser, getRoom, getSocket}) => {
             {
               results === getUser().uid
               ? 
-                <div>You won!</div>    
+                <div>You won 🥳🎉👏</div>    
               :   
-                <div>You lost!</div>     
+                <div>You lost 😔😭😢</div>     
             }
            </div>    
       }

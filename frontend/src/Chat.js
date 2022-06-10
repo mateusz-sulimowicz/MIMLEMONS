@@ -52,17 +52,17 @@ const Chat = ({name, destination, socket}) => {
                 <div>{name}</div>
               </div>
               <div className='val-your'>
-                <div>Sent:  </div>
+                <div>From:  </div>
                 <div>{messagesFrom}  </div>
               </div>
               <div className='val-opp'>
-                <div>Received: </div>
+                <div>To: </div>
                 <div>{messages}</div>
               </div>
             </div>
            
             <div>
-            <button className='buttonJoin'onClick={() => sendMessage(`Dupsko od ${socket.id}`)}> PING </button>
+            <button className='buttonPing'onClick={() => sendMessage(`Dupsko od ${socket.id}`)}> 🍋 </button>
             </div>
             
             

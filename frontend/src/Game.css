@@ -1,15 +1,16 @@
 .lobby {
     margin-top: 10%;
     margin-bottom: 30%;
-    margin-left: 15%;
-    margin-right: 15%;
-    background-color: whitesmoke;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(183, 208, 255);
     display: flex;
     flex-direction: column;
+    font-weight:bold;
 }
 
 .userData {
-    background-color: whitesmoke;
+
     display: flex;
     flex-direction: row;
     overflow-wrap: normal;
@@ -24,18 +25,18 @@
 }
 
 .opponents {
-    background-color:whitesmoke;
     display: flex;
     justify-content: space-evenly;
-    border-color: antiquewhite;
     padding: 5%;
+    min-height: 200px;
 }
 
 .chat {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
+    min-width: 25%;
+    width: 100%;
     height: 100%;
 }
 
@@ -71,7 +72,9 @@ img {
 .buttonJoin {
     background-color:dodgerblue;
     color: white;
-    width:100%
+    width:100%;
+    min-height: 200px;
+    font-weight:bold
 }
 
 .buttonJoin:hover {
@@ -81,13 +84,28 @@ img {
 }
 
 .buttonPing {
-    background-color:cornflowerblue;
+    background-color:rgb(20, 125, 230);
     color: white;
-    border-color: white;
+    width:100%;
+    min-height: 200px;
+    font-weight:bold;
+    font-size:40px;
+}
+
+.buttonPing:hover {
+    background-color:rgb(20, 125, 230);
+    color: white;
+    font-weight: bold;
+    font-size:100px;
+}
+
+.looking {
+    background:rgb(133, 194, 255);
+    color: white;
 }
 
 .buttonLogout {
-
+    font-weight:bolder;
     background-color: rgb(223, 0, 0);
     color: white;
 }
@@ -116,7 +134,8 @@ img {
     margin-top: 15%;
     display: flex;
     width: 100%;
-    justify-content: center
+    justify-content: center;
+    font-size: large;
 }
 
 .login {
@@ -141,7 +160,7 @@ img {
     justify-content: space-between;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 600px) {
     .userData {
         background-color: whitesmoke;
         display: flex;

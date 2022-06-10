@@ -19,7 +19,8 @@ const createUser = async (uid) => {
   });
 
   user = await userRef.get();
-  //console.log('Created new user', user);
+  console.log('Created new user', user);
+  return user;
 };
 
 // Reads user data from Firebase.

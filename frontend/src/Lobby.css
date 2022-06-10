@@ -3,13 +3,14 @@
     background-color: gainsboro;
     display: flex;
     flex-direction: column;
+    width: 80%
 }
 
 .userData {
     background-color: whitesmoke;
     display: flex;
     flex-direction: row;
-    overflow-wrap: normal;
+
 }
 
 .avatar {
@@ -27,31 +28,29 @@ img {
 .info {
     display: flex;
     justify-content: space-between;
+    word-break: break-all;
+  
+}
+
+.infotag {
+    min-width: 30%;
 }
 
 .val-opp {
     display: flex;
     justify-content: space-between;
-    background-color: rgb(232, 85, 85);
-    color: white;
+    background-color: rgb(198, 218, 255);
+    color: rgb(31, 111, 192);
 }
 
 .val-your {
     display: flex;
     justify-content: space-between;
-    background-color: rgb(74, 169, 74);
-    color: white;
+    background-color: rgb(234, 241, 255);
+    color: rgb(31, 111, 192);
 }
 
-.buttonJoin {
-    background-color:cornflowerblue;
-    color: white;
-}
 
-.buttonJoin:hover {
-    background-color:dodgerblue;
-    color: white;
-}
 
 .buttonPing {
     background-color:cornflowerblue;
@@ -76,8 +75,7 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow-wrap: normal;
-    width: 90%;
+
 }
 
 .login {
@@ -102,21 +100,27 @@ img {
     justify-content: space-between;
 }
 
+.avatar {
+    background-color: gainsboro;
+    display: flex;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    justify-content: center
+}
+
 @media only screen and (max-width: 700px) {
+    .lobby {
+        width: auto;
+    }
+
     .userData {
         background-color: whitesmoke;
         display: flex;
         flex-direction: column;
-        overflow-wrap: normal;
+        overflow-wrap:break-word;
     }
 
-    .avatar {
-        background-color: gainsboro;
-        display: flex;
-        margin-left: 1%;
-        margin-right: 1%;
-        margin-top: 1%;
-        margin-bottom: 1%;
-        justify-content: center
-}
+    
   }

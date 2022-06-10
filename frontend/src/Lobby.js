@@ -94,19 +94,19 @@ const Lobby = ({setSocket, getSocket, setRoom}) => {
           ? // Display user data.
             (
             <div className='lobby'>
-            <button className='buttonLogout' onClick={() => auth.signOut()}>LOG OUT</button>
+              <button className='buttonLogout' onClick={() => auth.signOut()}>LOG OUT</button>
               <div className='userData'>
                 <div className='avatar'> 
                 <img src={user.photoURL} alt="Your Google account avatar." />
                 </div>
                 <div className='userDetails'>
                   <div className='info'>
-                    <div>Name:</div>
+                    <div className='infotag'>Name:</div>
                     <div>{user.displayName}</div>
                   </div>
                  
                   <div className='info'>
-                    <div>Email:     </div>
+                    <div className='infotag'> <div>Email:</div></div>
                     <div>{user.email}</div>
                   </div>
                 {
@@ -114,11 +114,11 @@ const Lobby = ({setSocket, getSocket, setRoom}) => {
                   (
                     <>
                     <div className='info'>
-                      <div>Games won:     </div>
+                      <div  className='infotag'> <div>Games won:</div>     </div>
                       <div>{userGameData.gamesWon}</div>
                     </div>
                     <div className='info'>
-                      <div>Games played:  </div>
+                      <div  className='infotag'> <div>Games played:</div></div>
                       <div>{userGameData.gamesPlayed}</div>
                     </div>
                     </>
@@ -138,7 +138,7 @@ const Lobby = ({setSocket, getSocket, setRoom}) => {
                   matchmaking && 
                   (
                     <>
-                      <div>Looking for a game...</div>
+                      <div className='looking'>Looking for a game...</div>
                     </>
                   ) 
                 } 
