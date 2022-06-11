@@ -54,7 +54,7 @@ app.use(express.json());
 app.use(auth);
 
 // GET user game data.
-app.get('/users/', async (req, res) => {
+app.get('/api/users/', async (req, res) => {
   const response = await axios.get(`/users/${req.body.token.uid}`);
   res.send(response.data);
 });

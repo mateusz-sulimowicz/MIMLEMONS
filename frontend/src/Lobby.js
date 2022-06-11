@@ -86,8 +86,8 @@ const Lobby = ({setSocket, getSocket, setRoom}) => {
       {
         loading
         ? // Display Loading message.
-          <div  className='lobby'> 
-          <div className='toast'> Loading...</div> </div>  
+          
+          <div className='toast'> Loading...</div>   
         : // State has loaded.
           user
           ? // Display user data.
@@ -138,7 +138,7 @@ const Lobby = ({setSocket, getSocket, setRoom}) => {
                 : 
                   (
                     <button className='buttonJoin' onClick={() => joinGame()}>
-                    👀 Looking for a game ... 👀
+                      👀 Looking for a game ... 👀
                     </button>
                   ) 
               }  

@@ -8,7 +8,7 @@ axios.defaults.baseURL = backendURL;
 console.log(axios.defaults.baseURL);
 
 export const getUserData = (token) => axios
-.get(`/users`,  {
+.get(`/api/users`,  {
   headers: {
     'Authorization': `Bearer ${token}`,
   },
