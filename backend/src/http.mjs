@@ -16,6 +16,7 @@ axios.defaults.baseURL = usersURL;
 // Middleware that verifies user's auth token
 // and passes the decoded token in req.body.token property.
 const auth = async (req, res, next) => {
+  console.log('request', req);
   const authHeader = req.headers.authorization;
   if (!authHeader) {
     // Auth header not found
@@ -46,10 +47,16 @@ app.use(express.json());
 
 // Every request to the backend
 // *needs* to be authenticated.
-app.use(auth);
+//app.use(auth);
+
 
 // GET user game data.
-app.get('/api/users/', async (req, res) => {
+app.get('/', async (req, res) => {
+  res.send();
+});
+
+// GET user game data.
+app.get('/api/users/', auth, async (req, res) => {
   const response = await axios.get(`/users/${req.body.token.uid}`);
   res.send(response.data);
 });

@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: jnp-ingress
+spec:
+  defaultBackend:
+    service:
+      name: jnp-frontend
+      port:
+        number: 80
+  rules:
+  - http:
+      paths:
+      - path: /api/
+        pathType: Prefix
+        backend:
+          service:
+            name: jnp-backend
+            port:
+              number: 80
+
+      - path: /socket.io/
+        pathType: Prefix
+        backend:
+          service:
+            name: jnp-backend
+            port:
+              number: 80
+

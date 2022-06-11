@@ -7,7 +7,7 @@ metadata:
 spec:
   selector:
     app: jnp-users
-  type: LoadBalancer    
+  type: NodePort   
   ports:
   - name: jnp-users
     protocol: TCP

@@ -7,9 +7,9 @@ metadata:
 spec:
   selector:
     app: jnp-frontend
-  type: LoadBalancer    
+  type: NodePort    
   ports:
   - name: jnp-frontend
     protocol: TCP
     port: 80
-    targetPort: 3000
+    targetPort: 80

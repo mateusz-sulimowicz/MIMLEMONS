@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name:  jnp-backend
-        image: europe-central2-docker.pkg.dev/jnp2-fda92/jnp-repo/backend:v2
+        image: europe-central2-docker.pkg.dev/jnp2-fda92/jnp-repo/backend:v8
         env:
         - name: PORT
           value: "8008"

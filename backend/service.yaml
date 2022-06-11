@@ -1,13 +1,14 @@
 # https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource
-
 apiVersion: v1
 kind: Service
 metadata:
+  annotations:
+    cloud.google.com/backend-config: '{"default": "server-config"}'
   name: jnp-backend
 spec:
   selector:
     app: jnp-backend
-  type: LoadBalancer    
+  type: NodePort    
   ports:
   - name: jnp-backend
     protocol: TCP

@@ -16,10 +16,11 @@ spec:
     spec:
       containers:
       - name:  jnp-frontend
-        image: europe-central2-docker.pkg.dev/jnp2-fda92/jnp-repo/frontend:v1
+        image: europe-central2-docker.pkg.dev/jnp2-fda92/jnp-repo/frontend:v13
         env:
         - name: REACT_APP_BACKEND_PORT
           value: "80"
         - name: REACT_APP_BACKEND
-          value: "34.116.171.68"
-     
+          value: "34.110.211.205"
+        - name: PORT
+          value: "80"
