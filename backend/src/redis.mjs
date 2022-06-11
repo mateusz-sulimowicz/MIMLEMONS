@@ -8,8 +8,12 @@ const {
   REDIS, REDIS_PORT,
 } = process.env;
 
-const publisher = redis.createClient(REDIS_PORT, REDIS);
-
+const publisher = redis.createClient({
+  socket: {
+    port: REDIS_PORT,
+    host: REDIS,
+  }
+});
 publisher.on('error', (err) => {
   console.log('Error occured while connecting or accessing redis server', err);
 });

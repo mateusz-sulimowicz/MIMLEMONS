@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase-admin/app';
 import admin from 'firebase-admin';
 
-import serviceAccount from '../../firebase-auth-key.json';
+import serviceAccount from '../../firebase-auth-key.json' assert {type: "json"};
 
 // Initialize Firebase
 initializeApp({

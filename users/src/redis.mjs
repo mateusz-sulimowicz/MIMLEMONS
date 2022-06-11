@@ -2,14 +2,22 @@ import dotenv from 'dotenv';
 import redis from 'redis';
 import { updateUserLostGame, updateUserWonGame } from './firebase/requests.mjs'
 
-// Import env variables from .env file.
-dotenv.config();
 
 const {
   REDIS, REDIS_PORT,
 } = process.env;
 
-const subscriber = redis.createClient(REDIS_PORT, REDIS);
+console.log('DUPA');
+console.log(REDIS);
+console.log(REDIS_PORT);
+
+
+const subscriber = redis.createClient({
+  socket: {
+    port: REDIS_PORT,
+    host: REDIS,
+  }
+});
 
 subscriber.on('error', (err) => {
   console.log('Error occured while connecting or accessing redis server', err);

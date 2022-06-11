@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  jnp-users
+  labels:
+    app:  jnp-users
+spec:
+  selector:
+    matchLabels:
+      app: jnp-users
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app:  jnp-users
+    spec:
+      containers:
+      - name:  jnp-users
+        image: europe-central2-docker.pkg.dev/jnp2-fda92/jnp-repo/users:v5
+        env:
+        - name: PORT
+          value: "9009"
+        - name: REDIS
+          value: "10.172.52.139"
+        - name: REDIS_PORT
+          value: "6379"    
+     

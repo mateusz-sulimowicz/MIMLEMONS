@@ -1,0 +1,15 @@
+# https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: jnp-backend
+spec:
+  selector:
+    app: jnp-backend
+  type: LoadBalancer    
+  ports:
+  - name: jnp-backend
+    protocol: TCP
+    port: 80
+    targetPort: 8008

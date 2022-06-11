@@ -1,0 +1,15 @@
+# https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: jnp-users
+spec:
+  selector:
+    app: jnp-users
+  type: LoadBalancer    
+  ports:
+  - name: jnp-users
+    protocol: TCP
+    port: 80
+    targetPort: 9009

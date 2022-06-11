@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  jnp-backend
+  labels:
+    app:  jnp-backend
+spec:
+  selector:
+    matchLabels:
+      app: jnp-backend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app:  jnp-backend
+    spec:
+      containers:
+      - name:  jnp-backend
+        image: europe-central2-docker.pkg.dev/jnp2-fda92/jnp-repo/backend:v2
+        env:
+        - name: PORT
+          value: "8008"
+        - name: REDIS
+          value: "10.172.52.139"
+        - name: REDIS_PORT
+          value: "6379"
+        - name: USERS
+          value: "10.64.5.38"
+        - name: USERS_PORT
+          value: "80"
+        - name: MATCHMAKING
+          value: "localhost"
+        - name: MATCHMAKING_PORT
+          value: "6000"    
+      - name:  jnp-matchmaking
+        image: europe-central2-docker.pkg.dev/jnp2-fda92/jnp-repo/matchmaking:v1
+        env:
+        - name: PORT
+          value: "6000"
+     

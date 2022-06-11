@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  jnp-frontend
+  labels:
+    app:  jnp-frontend
+spec:
+  selector:
+    matchLabels:
+      app: jnp-frontend
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app:  jnp-frontend
+    spec:
+      containers:
+      - name:  jnp-frontend
+        image: europe-central2-docker.pkg.dev/jnp2-fda92/jnp-repo/frontend:v1
+        env:
+        - name: REACT_APP_BACKEND_PORT
+          value: "80"
+        - name: REACT_APP_BACKEND
+          value: "34.116.171.68"
+     
