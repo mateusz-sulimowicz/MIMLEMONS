@@ -138,7 +138,7 @@ const Lobby = ({setSocket, getSocket, setRoom}) => {
                 : 
                   (
                     <button className='buttonJoin' onClick={() => joinGame()}>
-                      👀 Looking for a game ... 👀
+                      👀 LOOKING FOR A GAME... 👀
                     </button>
                   ) 
               }  
