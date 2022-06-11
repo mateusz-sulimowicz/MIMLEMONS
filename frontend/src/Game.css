@@ -49,20 +49,7 @@ img {
     font: 40px;
 }
 
-.buttonJoin {
-    background-color:dodgerblue;
-    color: white;
-    width:100%;
-    min-height: 200px;
-    font-weight:bold;
-    font-size: 20px;
-}
 
-.buttonJoin:hover {
-    background-color:rgb(20, 125, 230);
-    color: white;
-    font-weight: bold;
-}
 
 .buttonPing {
     background-color:rgb(20, 125, 230);
@@ -75,10 +62,10 @@ img {
 }
 
 .buttonPing:hover {
-    background-color:rgb(23, 126, 230);
+    background-color:rgb(21, 116, 211);
     color: white;
     font-weight: bold;
-    font-size: min(18vw, 80px)
+    font-size: min(18vw, min(18vh, 80px))
 }
 
 .empty {
@@ -116,20 +103,3 @@ img {
     justify-content: center
 }
 
-.loginPage {
-    margin-top: 10%;
-    margin-bottom: 30%;
-    margin-left: 15%;
-    margin-right: 15%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-@media only screen and (max-width: 600px) {
-    .userData {
-        display: flex;
-        flex-direction: column;
-        overflow-wrap: normal;
-    }
-}

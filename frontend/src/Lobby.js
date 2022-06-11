@@ -93,55 +93,53 @@ const Lobby = ({setSocket, getSocket, setRoom}) => {
           ? // Display user data.
             (
             <div className='lobby'>
-              <button className='buttonLogout' onClick={() => auth.signOut()}>LOG OUT</button>
+              <div class='lobby_title'>
+                Hi, {user.displayName}! To join a game click the big button. 😊
+              </div>
+              
               <div className='userData'>
                 <div className='avatar'> 
-                <img src={user.photoURL} alt="Your Google account avatar." />
+                  <button className='buttonLogout' onClick={() => auth.signOut()}>LOG OUT</button>
+                  <img src={user.photoURL} alt="Your Google account avatar." /> 
                 </div>
                 <div className='userDetails'>
-                  <div className='info'>
-                    <div className='infotag'>Name:</div>
-                    <div>{user.displayName}</div>
-                  </div>
-                 
-                  <div className='info'>
-                    <div className='infotag'> <div>Email:</div></div>
-                    <div>{user.email}</div>
-                  </div>
-                {
-                  userGameData && // User game data successfully fetched from backend.
-                  (
-                    <>
-                    <div className='info'>
-                      <div  className='infotag'> <div>Games won:</div>     </div>
-                      <div>{userGameData.gamesWon}</div>
-                    </div>
-                    <div className='info'>
-                      <div  className='infotag'> <div>Games played:</div></div>
-                      <div>{userGameData.gamesPlayed}</div>
-                    </div>
-                    </>
-                  ) 
-                }
+                    {
+                      userGameData && // User game data successfully fetched from backend.
+                      (
+                        <>
+                          <div className='info'>
+                            <div  className='infotag'> <div>Games won:</div>     </div>
+                            <div>{userGameData.gamesWon}</div>
+                          </div>
+                          <div className='info'>
+                            <div  className='infotag'> <div>Games played:</div></div>
+                            <div>{userGameData.gamesPlayed}</div>
+                          </div>
+                        </>
+                      ) 
+                    }
                 </div>
                 
               </div>
-              {
-                !matchmaking
-                ? 
-                  userGameData && // User game data successfully fetched from backend.
+              <div class='joinwrapper'>
+                {
+                  !matchmaking
+                  ? 
+                    userGameData && // User game data successfully fetched from backend.
+                      (
+                        <button className='buttonJoin' onClick={() => joinGame()}>
+                          JOIN GAME
+                        </button>
+                      ) 
+                  : 
                     (
                       <button className='buttonJoin' onClick={() => joinGame()}>
-                        JOIN GAME
+                        🧐 LOOKING FOR A GAME... 🧐
                       </button>
                     ) 
-                : 
-                  (
-                    <button className='buttonJoin' onClick={() => joinGame()}>
-                      👀 LOOKING FOR A GAME... 👀
-                    </button>
-                  ) 
-              }  
+                }  
+              </div>
+              
             </div>
             ) 
           : // User has not signed in yet -> display "Sign in with Google" button only.
@@ -153,7 +151,6 @@ const Lobby = ({setSocket, getSocket, setRoom}) => {
               <GoogleButton  className='butonLogin'  onClick={() => auth.signInWithPopup(provider)}>Sign in with Google</GoogleButton>
             </div>
           </div>
-          
       }
       </>
     );

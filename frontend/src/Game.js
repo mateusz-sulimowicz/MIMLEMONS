@@ -25,6 +25,17 @@ const Game = ({getUser, getRoom, getSocket}) => {
   console.log(players);
 
   useEffect(() => {
+    window.addEventListener('beforeunload', alertUser)
+    return () => {
+      window.removeEventListener('beforeunload', alertUser)
+    }
+  }, [])
+  const alertUser = e => {
+    e.preventDefault()
+    e.returnValue = 'You wil be disconnected from the'
+  }
+
+  useEffect(() => {
     if (!getUser() || !getRoom() || !getSocket()) {
       console.log('dupa');
       navigator('/');

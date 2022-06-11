@@ -10,11 +10,15 @@
     font-weight:bold;
 }
 
+
 .userData {
     background-color: rgb(234, 241, 255);
     display: flex;
     flex-direction: row;
-
+    border-style: solid;
+    border: solid rgb(187, 211, 255);
+    border-width: 1px 0;
+    padding: 2%;
 }
 
 img {
@@ -26,7 +30,9 @@ img {
     display: flex;
     justify-content: space-between;
     word-break: break-all;
-  
+    border: solid rgb(187, 211, 255);
+    border-width: 1px 0;
+    background-color: rgb(242, 247, 255);
 }
 
 .infotag {
@@ -49,14 +55,31 @@ img {
     padding: 2%;
 }
 
-.buttonPing {
-    background-color:cornflowerblue;
+.joinwrapper {
+    display: flex;
+    justify-content: center;
+    padding: 5%;
+    background-color: rgb(223, 233, 253);;
+   
+}
+
+.buttonJoin {
+    background-color:rgb(20, 125, 230);
     color: white;
-    border-color: white;
+    width:80%;
+    height: 80%;
+    min-height: 200px;
+    font-weight:bold;
+    font-size: 20px;
+    word-wrap: break-word;
+}
+
+.buttonJoin:hover {
+    background-color:rgb(19, 108, 197);
+    font-weight: bold;
 }
 
 .buttonLogout {
-
     background-color: rgb(20, 125, 230);
     color: white;
 }
@@ -67,11 +90,25 @@ img {
     color: white;
 }
 
+.lobby_title {
+    background-color: rgb(40, 135, 231);
+    color: white;
+    font-weight: bold;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    min-width: 1%;
+    justify-self: center;
+    width: 100%;
+    text-align: center;
+
+    
+}
+
 .userDetails {
     padding: 5%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+   
 
 }
 
@@ -100,6 +137,7 @@ img {
 .avatar {
     background-color: rgb(208, 225, 255);
     display: flex;
+    flex-direction: column;
     margin-left: 1%;
     margin-right: 1%;
     margin-top: 1%;
@@ -107,10 +145,22 @@ img {
     justify-content: center
 }
 
-@media only screen and (max-width: 700px) {
+.loginPage {
+    margin-top: 10%;
+    margin-bottom: 30%;
+    margin-left: 15%;
+    margin-right: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+@media only screen and (max-width: 600px) {
     .userData {
         display: flex;
         flex-direction: column;
-        overflow-wrap:break-word;
-    }    
+        overflow-wrap: normal;
+    }
 }
+
