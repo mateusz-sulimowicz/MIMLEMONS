@@ -1,0 +1,7 @@
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: mimlemons-cert-ssl
+spec:
+  domains:
+    - mimlemons.com

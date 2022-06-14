@@ -16,11 +16,9 @@ spec:
     spec:
       containers:
       - name:  jnp-frontend
-        image: europe-central2-docker.pkg.dev/jnp2-fda92/jnp-repo/frontend:v13
+        image: europe-central2-docker.pkg.dev/jnp2-fda92/jnp-repo/frontend:v25
         env:
-        - name: REACT_APP_BACKEND_PORT
-          value: "80"
         - name: REACT_APP_BACKEND
-          value: "34.110.211.205"
+          value: "mimlemons.com"
         - name: PORT
           value: "80"

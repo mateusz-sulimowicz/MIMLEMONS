@@ -13,4 +13,4 @@ spec:
   - name: jnp-backend
     protocol: TCP
     port: 80
-    targetPort: 8008
+    targetPort: 80

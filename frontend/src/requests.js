@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { io } from 'socket.io-client';
 
-const backendURL = `http://${process.env.REACT_APP_BACKEND}:${process.env.REACT_APP_BACKEND_PORT}`;
+const backendURL = `https://${process.env.REACT_APP_BACKEND}`;
 
 axios.defaults.baseURL = backendURL;
 
