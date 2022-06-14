@@ -1,10 +1,14 @@
+
+@import url('https://fonts.googleapis.com/css?family=Bowlby+One+SC');
+
 body {
-    font: 14px "Century Gothic", Futura, sans-serif;
+    font-family: 'Bowlby One SC', cursive;
     margin: 20px;
     max-width: 700px;
     margin: auto;
     background-color: rgb(241, 245, 251);
     max-height: 1000px;
+    color: rgb(27, 96, 165);
   }
   
   ol, ul {
@@ -26,7 +30,6 @@ body {
     border: 1px solid #999;
     float: left;
     font-size: 24px;
-    font-weight: bold;
     line-height: 34px;
     height: 34px;
     margin-right: -1px;
@@ -56,4 +59,8 @@ body {
 
 .looking {
   color: rgb(58, 58, 58)
+}
+
+button {
+  font-family: inherit;
 }

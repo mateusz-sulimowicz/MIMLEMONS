@@ -22,7 +22,6 @@ const Chat = ({name, destination, socket}) => {
 
   useEffect(() => {
     socket.on('RECEIVE-MESSAGE', (message) => {
-        console.log('RECEIVED!!!', message);
        if (message.source === destination) {
            setNewMessage(message);
        }

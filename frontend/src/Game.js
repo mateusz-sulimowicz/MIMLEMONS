@@ -1,14 +1,13 @@
 // App.js
-import React, { useEffect, useState, useRef } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import 'socket.io-client';
 import Countdown from 'react-countdown';
 
-import { auth, provider } from './firebase/util.js';
+import { auth } from './firebase/util.js';
 import Chat from "./Chat.js";
 import './Game.css'
 const getEmoji = require('get-random-emoji')
-
 
 const Game = ({getUser, getRoom, getSocket}) => {
 
@@ -17,12 +16,7 @@ const Game = ({getUser, getRoom, getSocket}) => {
   const [results, setResults] = useState();
   const [chats, setChats] = useState();
 
-  console.log(getUser());
-  console.log('ROOM', getRoom());
-  console.log('SOCKET', getSocket());
-
   const players = getRoom();
-  console.log(players);
 
   useEffect(() => {
     window.addEventListener('beforeunload', alertUser)
@@ -37,7 +31,6 @@ const Game = ({getUser, getRoom, getSocket}) => {
 
   useEffect(() => {
     if (!getUser() || !getRoom() || !getSocket()) {
-      console.log('dupa');
       navigator('/');
       window.location.reload(false);
     }
@@ -75,14 +68,9 @@ const Game = ({getUser, getRoom, getSocket}) => {
 
   useEffect(() => {
     getSocket().on('GAME-ENDED', (message) => {
-      console.log('KTO TO KURWA WYGRAL', message)
       setResults(message);
-      console.log('Game finshed!!!!', message);
     });
   }, []);
-
-  
-    
 
   return (
       <div className='user-info'>
@@ -93,8 +81,6 @@ const Game = ({getUser, getRoom, getSocket}) => {
             ? // Display user data.
             (
             <div className="lobby">
-            
-              
                 <div className='opponents_title'>
                  <div> Throw 🍋  at your emoji-opponents by clicking the big buttons! </div>
                  <div> Time left: <Countdown date={Date.now() + 60000} /> </div>
@@ -102,10 +88,7 @@ const Game = ({getUser, getRoom, getSocket}) => {
                 <div className='opponents'>
                   {chats}
                 </div>
-                
-
             </div>
-            
             )
             : <> You are not currently in-game.</>
         :  <div className='toast'>
@@ -118,7 +101,6 @@ const Game = ({getUser, getRoom, getSocket}) => {
             }
            </div>    
       }
-      
       </div >
     );
 }

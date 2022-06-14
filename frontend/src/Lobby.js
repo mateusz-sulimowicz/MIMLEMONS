@@ -21,10 +21,7 @@ const Lobby = ({setSocket, getSocket, setRoom}) => {
   useEffect(() => {
     // On component mounting we add observer to auth state.
     const unsub = auth.onAuthStateChanged(async (user) => {
-      console.log(`state changed`, user);
       setUser(user);
-
-      console.log(user)
       setLoading(false);
     });
     // On component unmounting we unsubscribe.
@@ -42,28 +39,16 @@ const Lobby = ({setSocket, getSocket, setRoom}) => {
         setSocket(createWebSocket(token));
 
           getSocket().on('GAME-STARTED', (players) => {
-            console.log('GRACZE ZE MNA W GRZE', players);
             setRoom(players);
             navigate('/game');
           })
-       
-          console.log('Token', token);
-
           const u = await getUserData(token);
-          console.log('User data', u);
-
           setUserGameData(u);
           
       }
       if (user && !userGameData) {
         const token = await user.getIdToken(/* forceRefresh */ true);
-        
-
-        console.log('Token', token);
-
         const u = await getUserData(token);
-        console.log('User data', u);
-
         setUserGameData(u);
       }
     }
@@ -71,16 +56,10 @@ const Lobby = ({setSocket, getSocket, setRoom}) => {
   }, [user] /* Execute only on `user` state changed. */);
 
   const joinGame = () => {
-    console.log("JOIN!!!!");
-
     setMatchmaking(true);
-    getSocket().emit('JOIN-GAME', (response) => {
-      console.log(response);
-    });    
+    getSocket().emit('JOIN-GAME', () => {});    
   }
 
-  console.log(user);
-  console.log('WEBSOCKET', getSocket());
   return (
       <>
       {
@@ -93,8 +72,8 @@ const Lobby = ({setSocket, getSocket, setRoom}) => {
           ? // Display user data.
             (
             <div className='lobby'>
-              <div class='lobby_title'>
-                Hi, {user.displayName}! To join a game click the big button. 😊
+              <div className='lobby_title'>
+                        Hi, {user.displayName}! To join a game click the big button. 😊         
               </div>
               
               <div className='userData'>
