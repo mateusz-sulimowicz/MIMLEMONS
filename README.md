@@ -1,5 +1,5 @@
 
-# micro-game
+# :lemon: micro-game :lemon:
 
 Available at https://mimlemons.com/
 
