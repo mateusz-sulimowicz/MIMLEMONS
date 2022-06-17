@@ -6,6 +6,7 @@ metadata:
    kubernetes.io/ingress.global-static-ip-name: mimuw-lemons
    networking.gke.io/managed-certificates: mimlemons-cert-ssl 
    kubernetes.io/ingress.class: "gce"
+   networking.gke.io/v1beta1.FrontendConfig: lb-http-to-https  
 spec:
   defaultBackend:
     service:

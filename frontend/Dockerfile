@@ -10,8 +10,6 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 3000
-
 RUN [ "npm", "run", "build" ]
-CMD  npx serve -s build
+CMD  npx serve -p 80 -s build
 

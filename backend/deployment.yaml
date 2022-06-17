@@ -33,7 +33,7 @@ spec:
         - name: MATCHMAKING_PORT
           value: "6000"    
       - name:  jnp-matchmaking
-        image: europe-central2-docker.pkg.dev/jnp2-fda92/jnp-repo/matchmaking:v1
+        image: europe-central2-docker.pkg.dev/jnp2-fda92/jnp-repo/matchmaking:v33
         env:
         - name: PORT
           value: "6000"

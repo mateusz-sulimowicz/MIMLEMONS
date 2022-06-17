@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name:  jnp-users
-        image: europe-central2-docker.pkg.dev/jnp2-fda92/jnp-repo/users:v5
+        image: europe-central2-docker.pkg.dev/jnp2-fda92/jnp-repo/users:v44
         env:
         - name: PORT
           value: "9009"

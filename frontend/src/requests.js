@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { io } from 'socket.io-client';
 
-const backendURL = `https://${process.env.REACT_APP_BACKEND}`;
+const backendURL = `https://mimlemons.com`;
 
 axios.defaults.baseURL = backendURL;
 
@@ -16,10 +16,6 @@ export const getUserData = (token) => axios
 .then((res) => res.data)
 .catch((err) => console.error(err));
 
-axios.interceptors.request.use(request => {
-  console.log('Starting Request', JSON.stringify(request, null, 2))
-  return request
-})
 
 export const createWebSocket = (authToken) => { 
   return io.connect(backendURL, {
