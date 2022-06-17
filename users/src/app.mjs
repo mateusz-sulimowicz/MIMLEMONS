@@ -19,9 +19,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.use(express.json());
 
-app.use((req, res, next) => { console.log(req); next() });
-
-
 // POST - return decoded auth token if valid.
 app.post('/auth/', async (req, res) => {
     const idToken = req.body.token;
@@ -38,17 +35,13 @@ app.post('/auth/', async (req, res) => {
     
         res.send({ token: decodedToken });
       } catch (err) {
-        console.log('Failed to verify token', err);
         res.sendStatus(403);
       }
 })
 
 // GET user game data.
 app.get('/users/:uid', async (req, res) => {
-  //console.log(req.body.token);
-
   const u = await getUser(req.params.uid);
-  //console.log('Found user data', u);
   res.send(u);
 });
 

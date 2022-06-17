@@ -8,7 +8,6 @@ dotenv.config();
 const { PORT, USERS, USERS_PORT } = process.env;
 
 const usersURL = `http://${USERS}:${USERS_PORT}`;
-console.log(usersURL);
 
 axios.defaults.baseURL = usersURL;
 
@@ -18,7 +17,6 @@ axios.defaults.baseURL = usersURL;
 // and passes the decoded token in req.body.token property.
 const auth = async (req, res, next) => {
   const authHeader = req.headers.authorization;
-  console.log('AUTH AUTH AUTH');
   if (!authHeader) {
     // Auth header not found
     res.sendStatus(401);
@@ -27,9 +25,7 @@ const auth = async (req, res, next) => {
   // Auth header = "Bearer <token>"
   const idToken = authHeader.split(' ')[1];
   try {
-    console.log('GET AUTH GET AUTH ');
     const response = await axios.post('/auth', { token: idToken });
-    console.log('AUTHR EPSONSE ', response);
     if (response.data.token) {
       req.body.token = response.data.token;
       // Pass the decoded token to next handlers.
@@ -38,7 +34,6 @@ const auth = async (req, res, next) => {
       throw new Error('Failed to validate token!');
     }
   } catch (err) {
-    console.log('Failed to verify token', err);
     res.sendStatus(403);
   }
 };

@@ -27,11 +27,9 @@ app.post(
   '/',
   body('socketID').isAscii(),
   async (req, res) => {
-    console.log(req.body);
     try {
         validationResult(req).throw();
         socketIDs.add(req.body.socketID);
-        console.log('QUEUE', socketIDs);
 
         if (socketIDs.size == ROOM_SIZE) {
             // Enough players to create a match.

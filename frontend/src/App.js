@@ -1,10 +1,9 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useRef } from "react";
 import { BrowserRouter, Routes, Route,  } from "react-router-dom";
+
 import Lobby from "./Lobby";
 import Game from "./Game";
-
-import { auth, provider } from './firebase/util.js';
-
+import { auth } from './firebase/util.js';
 import './Lobby.css'
 
 export default function App() {

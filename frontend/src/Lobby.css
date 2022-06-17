@@ -75,8 +75,7 @@ img {
 .lobby_title {
     background-color: rgb(34, 126, 218);
     color: white;
-    font-weight: bold;
-     min-width: 1%;
+    min-width: 1%;
     justify-self: center;
     width: 100%;
     text-align: center;

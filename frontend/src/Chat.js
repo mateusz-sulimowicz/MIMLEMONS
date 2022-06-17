@@ -1,10 +1,8 @@
 // App.js
-import React, { useEffect, useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import 'socket.io-client';
 
 const Chat = ({name, destination, socket}) => {
-  const navigate = useNavigate();
 
   const [messages, setMessages] = useState(1);
   const [messagesFrom, setMessagesFrom] = useState(1);
@@ -41,36 +39,21 @@ const Chat = ({name, destination, socket}) => {
 
 
   return (
-    <>
-
-      {
-        (
-          <>
-            <div>
-            
-              <div className='info-opponent'>
-                <div>{name}</div>
-              </div>
-              <div className='val-your'>
-                <div>From:  </div>
-                <div className='counter'>{messagesFrom}  </div>
-              </div>
-              <div className='val-opp'>
-                <div>To: </div>
-                <div  className='counter'>{messages}</div>
-              </div>
-            </div>
-           
-            
-            <button className='buttonPing'onClick={() => sendMessage(`Dupsko od ${socket.id}`)}> 🍋 </button>
-            
-            
-            
-            
-          </>
-        )
-      }
-      
+      <>
+        <div>
+          <div className='info-opponent'>
+            <div>{name}</div>
+          </div>
+          <div className='val-your'>
+            <div>From:  </div>
+            <div className='counter'>{messagesFrom}  </div>
+          </div>
+          <div className='val-opp'>
+            <div>To: </div>
+            <div  className='counter'>{messages}</div>
+          </div>
+        </div>    
+        <button className='buttonPing'onClick={() => sendMessage(`LEMON`)}> 🍋 </button>    
     </>
   );
 }

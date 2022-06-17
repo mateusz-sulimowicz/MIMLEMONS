@@ -35,7 +35,7 @@ const Game = ({getUser, getRoom, getSocket}) => {
       window.location.reload(false);
     }
 
-    auth.onAuthStateChanged((user) => {
+    auth.onAuthStateChanged(() => {
       if (!getUser()) {
         navigator('/');
       }
@@ -74,33 +74,31 @@ const Game = ({getUser, getRoom, getSocket}) => {
 
   return (
       <div className='user-info'>
-      {
-        !results
-        ? 
+        {
+          !results
+          ? 
             getUser() && getSocket() && getRoom()
             ? // Display user data.
-            (
-            <div className="lobby">
-                <div className='opponents_title'>
-                 <div> Throw 🍋  at your emoji-opponents by clicking the big buttons! </div>
-                 <div> Time left: <Countdown date={Date.now() + 60000} /> </div>
+              (
+                <div className="lobby">
+                    <div className='opponents_title'>
+                      <div> Throw 🍋  at your emoji-opponents by clicking the big buttons! </div>
+                      <div> Time left: <Countdown date={Date.now() + 60000} /> </div>
+                    </div>
+                    <div className='opponents'> {chats} </div>
                 </div>
-                <div className='opponents'>
-                  {chats}
-                </div>
-            </div>
-            )
+              )
             : <> You are not currently in-game.</>
-        :  <div className='toast'>
-            {
-              results === getUser().uid
-              ? 
-                <div>You won 🥳🎉👏</div>    
-              :   
-                <div>You lost 😔😭😢</div>     
-            }
-           </div>    
-      }
+          : <div className='toast'>
+              {
+                results === getUser().uid
+                ? 
+                  <div>You won 🥳🎉👏</div>    
+                :   
+                  <div>You lost 😔😭😢</div>     
+              }
+            </div>    
+        }
       </div >
     );
 }
