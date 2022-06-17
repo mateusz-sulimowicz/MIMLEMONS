@@ -1,5 +1,5 @@
 
-# :lemon: Mimlemons :lemon:
+# :lemon: Lemons :lemon:
 
 Available at https://mimlemons.com/
 
